@@ -153,8 +153,9 @@ class Aclib {
         let passedCount = 0;
         let failedCount = 0;
         let logMessage = "\n\nAssertions:\n";
-    
+
         for (let assertionFn of test.assertions) {
+            let startTime = Date.now(); // Record the start time
             const passed = await assertionFn(test);
             if (passed) {
                 logMessage += `Assertion Passed\n`;
@@ -163,13 +164,17 @@ class Aclib {
                 logMessage += `Assertion Failed\n`;
                 failedCount++;
             }
+            
+            let endTime = Date.now(); // Record the end time
+            let durationMillis = endTime - startTime; // Calculate the duration in milliseconds
+            let durationSeconds = durationMillis / 1000; // Convert to seconds
 
             // Store the result in testResults array
             this.testResults.push({
                 name: test.testid,
                 status: passed ? 'passed' : 'failed',
-                time: 'fixme add time',
-                message: 'fixme add message'
+                time: durationSeconds,
+                message: 'TODO fixme add message'
             });
         }
         
