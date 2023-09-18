@@ -1,5 +1,5 @@
 # aclib
-Automation helper lib
+Automation API helper lib that provides javascript fetch capabilities wrapper. I micro replacement for postman due to the sep 15th scratchpad deadline.
 
 ## Example HTML
 
